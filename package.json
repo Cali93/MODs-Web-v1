@@ -1,0 +1,31 @@
+{
+  "name": "MODS-v1",
+  "version": "1.0.0",
+  "description": "MODs App first version",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "bluebird": "^3.5.1",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cali93/MODs-v1.git"
+  },
+  "author": "Cali-dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cali93/MODs-v1/issues"
+  },
+  "homepage": "https://github.com/Cali93/MODs-v1#readme"
+}
