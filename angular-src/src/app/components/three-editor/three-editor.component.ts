@@ -14,44 +14,34 @@ export class ThreeEditorComponent implements AfterViewInit, OnInit {
   public loadLink(linkUrl: string) {
     return new Promise((resolve, reject) => {
       const linkElement = document.createElement('link');
-      linkElement.href = linkUrl;
+      linkElement.type = 'text/css';
       linkElement.rel = 'stylesheet';
+      linkElement.href = linkUrl;
       linkElement.onload = resolve;
       document.body.appendChild(linkElement);
-    })
-  }
-
-  private loadLinkWithId(linkIdUrl: string) {
-    return new Promise((resolve, reject) => {
-      const linkIdElement = document.createElement('link');
-      linkIdElement.href = linkIdUrl;
-      linkIdElement.rel = 'stylesheet';
-      linkIdElement.id = 'theme';
-      linkIdElement.onload = resolve;
-      document.body.appendChild(linkIdElement);
-    })
+    });
   }
 
   private loadScript(scriptUrl: string) {
     return new Promise((resolve, reject) => {
       const scriptElement = document.createElement('script');
       scriptElement.src = scriptUrl;
+      scriptElement.type = 'application/javascript';
       scriptElement.onload = resolve;
       document.body.appendChild(scriptElement);
-    })
+    });
   }
 
   constructor() {}
 
   ngOnInit() {
-    this.loadLinkWithId('../../assets/editor/css/light.css');
+    this.loadLink('../../assets/editor/css/main.css');
+    this.loadLink('../../assets/editor/css/dark.css');
     this.loadLink('../../assets/editor/js/libs/codemirror/codemirror.css');
     this.loadLink('../../assets/editor/js/libs/codemirror/addon/dialog.css');
     this.loadLink('../../assets/editor/js/libs/codemirror/show-hint.css');
     this.loadLink('../../assets/editor/js/libs/codemirror/tern.css');
     this.loadLink('../../assets/editor/js/libs/codemirror/theme/monokai.css');
-    this.loadLink('../../assets/editor/css/main.css');
-    this.loadLink('../../assets/editor/css/dark.css');
   }
 
   async ngAfterViewInit() {

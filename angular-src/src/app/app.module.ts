@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
@@ -22,6 +22,10 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ShopComponent } from './components/shop/shop.component';
 
+import { ThreeAngular } from './threeAngular/threeAngular.module';
+import { ThreeEditorComponent } from './components/three-editor/three-editor.component';
+import { ShellComponent } from './components/shell/shell.component';
+import { MaterialModule } from './material.module';
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'mods', component: ModsComponent},
@@ -45,17 +49,23 @@ const appRoutes: Routes = [
     ModsComponent,
     AboutComponent,
     ContactComponent,
-    ShopComponent
+    ShopComponent,
+    ThreeEditorComponent,
+    ShellComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     HttpModule,
+    ThreeAngular,
+    MaterialModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot()
   ],
   providers: [ValidateService, AuthService, AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
+
